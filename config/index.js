@@ -28,7 +28,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      'api/': {
+      '/api': {
         target: 'http://api.douban.com/v2',
         changeOrigin: true,
         pathRewrite: {

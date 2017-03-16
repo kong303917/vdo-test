@@ -2,14 +2,14 @@ import * as type from './type';
 import * as api from './api';
 
 const mutations = {
-    [type.FETCH_MOVIES](start, payload) {
+    [type.FETCH_MOVIES](state, payload) {
         state.movies[payload.type].subject =
-            state.movies[payload.type].subject.concat(payload.subjects);
+            state.movies[payload.type].subjects.concat(payload.subjects);
         state.movies[payload.type].total = state.movies[payload.type].subjects.length;
     },
     [type.FETCH_MOVIES_QUERY](state, payload) {
         console.log('111');
-        state.movieQuery.subjects = payload.data.subjects;
+        state.movieQuery.subjects = payload.subjects;
         console.log('222');
         state.movieQuery.total = state.movieQuery.subjects.length;
         console.log('333');
@@ -23,7 +23,7 @@ const mutations = {
     [type.CHANGE_MOVIES_TAB](state, tab) {
         state.tab = tab;
     },
-    [type.UPDATE_MOVIES_SEARCH_STEP](state, searchStep) {
+    [type.UPDATE_MOVIE_SEARCH_STEP](state, searchStep) {
         state.searchStep = searchStep;
     },
 };
@@ -46,8 +46,8 @@ const actions = {
     [type.CHANGE_MOVIES_TAB](context, tab) {
         context.commit(type.CHANGE_MOVIES_TAB, tab);
     },
-    [type.UPDATE_MOVIES_SEARCH_STEP](context, searchStep) {
-        context.commit(type.UPDATE_MOVIES_SEARCH_STEP, searchStep);
+    [type.UPDATE_MOVIE_SEARCH_STEP](context, searchStep) {
+        context.commit(type.UPDATE_MOVIE_SEARCH_STEP, searchStep);
     },
 };
 
